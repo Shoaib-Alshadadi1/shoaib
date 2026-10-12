@@ -1,14 +1,942 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>welcom mohammed</h1>
-    <h1>welcom jamal</h1>
-    <p>welcome kream</p>
+    <title>م. شعيب الشدادي | مهندس برمجيات ومطور أنظمة</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Fira Code for tech fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            accent: '#06b6d4',
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            border: '#1f293d'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 5s ease-in-out infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(16, 185, 129, 0.2)' },
+                            '100%': { boxShadow: '0 0 35px rgba(6, 182, 212, 0.45)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0b1120;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1120;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+        /* Subtle grid background */
+        .bg-tech-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #34d399 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-blur {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-[#0b1120] text-slate-100 antialiased relative selection:bg-brand-500 selection:text-white">
+
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 right-10 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute top-1/3 -left-32 w-80 h-80 bg-brand-accent/15 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 card-blur border-b border-white/10" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent p-0.5 shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <div class="w-full h-full bg-[#0d1527] rounded-[10px] flex items-center justify-center font-bold text-lg text-brand-400">
+                        ش.ش
+                    </div>
+                </div>
+                <div>
+                    <div class="font-extrabold text-lg sm:text-xl tracking-wide group-hover:text-brand-400 transition-colors">
+                        م. شعيب الشدادي
+                    </div>
+                    <span class="text-xs text-slate-400 font-mono tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 inline-block animate-ping"></span>
+                        Software Engineer
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#hero" class="text-slate-300 hover:text-brand-400 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform">الرئيسية</a>
+                <a href="#skills" class="text-slate-300 hover:text-brand-400 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform">المهارات</a>
+                <a href="#projects" class="text-slate-300 hover:text-brand-400 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform">المشاريع</a>
+                <a href="#contact" class="text-slate-300 hover:text-brand-400 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform">تواصل معي</a>
+            </nav>
+
+            <!-- Call to action button & Mobile Menu trigger -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-brand-accent text-white font-semibold text-sm hover:shadow-lg hover:shadow-brand-500/25 transition-all duration-300 hover:-translate-y-0.5">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                    <span>طلب استشارة أو مشروع</span>
+                </a>
+                
+                <button id="menuBtn" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800/60 focus:outline-none" aria-label="القائمة">
+                    <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden card-blur border-b border-slate-800 px-6 py-6 space-y-4 transition-all">
+            <a href="#hero" class="mobile-nav-link block py-2 text-slate-200 hover:text-brand-400 font-medium">الرئيسية (تعريفي)</a>
+            <a href="#skills" class="mobile-nav-link block py-2 text-slate-200 hover:text-brand-400 font-medium">المهارات والخبرات</a>
+            <a href="#projects" class="mobile-nav-link block py-2 text-slate-200 hover:text-brand-400 font-medium">المشاريع والبرامج</a>
+            <a href="#contact" class="mobile-nav-link block py-2 text-slate-200 hover:text-brand-400 font-medium">معلومات التواصل</a>
+            <div class="pt-4 border-t border-slate-800">
+                <a href="#contact" class="mobile-nav-link w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-600 text-white font-semibold text-sm">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>تواصل الآن</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-20">
+        <section id="hero" class="min-h-[calc(100vh-80px)] flex items-center relative py-16 lg:py-24 bg-tech-grid">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left/Hero Text Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full card-blur border border-brand-500/30 text-brand-400 text-xs sm:text-sm font-semibold shadow-sm">
+                            <span class="flex h-2.5 w-2.5 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-500"></span>
+                            </span>
+                            <span>متاح للعمل على مشاريع برمجية جديدة وتطوير الأنظمة</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-white">
+                            أهلاً بك، أنا <br class="hidden sm:inline">
+                            <span class="text-gradient">م. شعيب الشدادي</span>
+                        </h1>
+
+                        <!-- Dynamic Typing Role -->
+                        <div class="text-lg sm:text-2xl font-semibold text-slate-300 flex items-center justify-center lg:justify-start gap-2 h-10">
+                            <span>مهندس برمجيات متخصص في:</span>
+                            <span id="typingText" class="text-brand-400 font-mono underline decoration-brand-accent decoration-2 underline-offset-8"></span>
+                        </div>
+
+                        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                            أمتلك شغفاً عميقاً في ابتكار حلول رقمية فائقة الأداء وتحويل الأفكار المعقدة إلى برمجيات ذكية وسلسة؛ من تطبيقات الويب الحديثة، والأنظمة الإدارية المتكاملة، إلى تطبيقات الهواتف الذكية مع معايير كود نظيفة وتجربة مستخدم متميزة.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-brand-accent text-white font-bold hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-1 transition-all flex items-center gap-2.5">
+                                <i class="fa-solid fa-laptop-code"></i>
+                                <span>استكشف المشاريع</span>
+                            </a>
+                            <a href="#contact" class="px-7 py-3.5 rounded-xl card-blur hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-bold hover:-translate-y-1 transition-all flex items-center gap-2.5">
+                                <i class="fa-brands fa-whatsapp text-green-400"></i>
+                                <span>تواصل معي مباشرة</span>
+                            </a>
+                        </div>
+
+                        <!-- Highlights / Quick Stats -->
+                        <div class="grid grid-cols-3 gap-4 pt-6 max-w-lg mx-auto lg:mx-0 border-t border-slate-800/80">
+                            <div class="text-center lg:text-right">
+                                <div class="text-2xl sm:text-3xl font-black text-white font-mono" id="stat1">+25</div>
+                                <div class="text-xs sm:text-sm text-slate-400">مشروعاً ناجحاً</div>
+                            </div>
+                            <div class="text-center lg:text-right">
+                                <div class="text-2xl sm:text-3xl font-black text-brand-400 font-mono" id="stat2">100%</div>
+                                <div class="text-xs sm:text-sm text-slate-400">التزام ودقة برمجية</div>
+                            </div>
+                            <div class="text-center lg:text-right">
+                                <div class="text-2xl sm:text-3xl font-black text-brand-accent font-mono" id="stat3">+4</div>
+                                <div class="text-xs sm:text-sm text-slate-400">سنوات خبرة متخصصة</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right/Visual Profile Badge Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-72 sm:w-88 max-w-full">
+                            <!-- Outer animated ring -->
+                            <div class="absolute -inset-2 bg-gradient-to-r from-brand-500 to-brand-accent rounded-3xl blur-xl opacity-40 animate-glow"></div>
+                            
+                            <!-- Card Container -->
+                            <div class="relative rounded-3xl card-blur border border-brand-500/20 p-6 sm:p-8 flex flex-col items-center shadow-2xl animate-float">
+                                <!-- Status badge -->
+                                <div class="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 font-medium">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                    <span>نشط الآن</span>
+                                </div>
+
+                                <!-- Avatar / Graphical Icon -->
+                                <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900 border-2 border-brand-400/40 p-1 flex items-center justify-center mb-6 shadow-inner relative group">
+                                    <div class="w-full h-full bg-gradient-to-b from-[#131d33] to-[#0d1424] rounded-xl flex items-center justify-center overflow-hidden">
+                                        <i class="fa-solid fa-user-tie text-6xl text-slate-300 group-hover:scale-110 transition-transform duration-500"></i>
+                                    </div>
+                                    <div class="absolute -bottom-2 -left-2 bg-brand-500 text-white p-2 rounded-xl text-xs shadow-md">
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-xl font-bold text-white mb-1">م. شعيب الشدادي</h3>
+                                <p class="text-sm text-brand-400 font-mono mb-4">Eng. Shuaib Al-Shaddadi</p>
+
+                                <div class="w-full bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-xs space-y-2 mb-6 font-mono text-slate-300 text-left" dir="ltr">
+                                    <div class="flex items-center justify-between text-slate-500 border-b border-slate-800 pb-1">
+                                        <span>developer.json</span>
+                                        <span class="text-[10px] text-emerald-400">● Live</span>
+                                    </div>
+                                    <p><span class="text-pink-400">stack</span>: [<span class="text-yellow-300">"Laravel"</span>, <span class="text-cyan-300">"Flutter"</span>, <span class="text-emerald-300">"Vue"</span>]</p>
+                                    <p><span class="text-pink-400">focus</span>: <span class="text-green-300">"Full-Stack & Mobile Apps"</span></p>
+                                </div>
+
+                                <!-- Social Media Links -->
+                                <div class="flex items-center gap-3">
+                                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-brand-500 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" title="GitHub">
+                                        <i class="fa-brands fa-github text-lg"></i>
+                                    </a>
+                                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" title="LinkedIn">
+                                        <i class="fa-brands fa-linkedin-in text-lg"></i>
+                                    </a>
+                                    <a href="https://wa.me/967770000000" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-emerald-600 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" title="WhatsApp">
+                                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    </a>
+                                    <a href="mailto:eng.shuaib@example.com" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-red-500 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" title="Email">
+                                        <i class="fa-regular fa-envelope text-lg"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 lg:py-28 relative border-t border-slate-800/70 bg-[#090e1a]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20">
+                        القدرات البرمجية والتقنية
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-4">
+                        المهارات والخبرات العملية
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg">
+                        مجموعة الأدوات والتقنيات الحديثة التي أعتمد عليها في بناء الأنظمة المعقدة والتطبيقات السلسة ذات الجودة العالية.
+                    </p>
+                </div>
+
+                <!-- Skill Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    
+                    <!-- Skill 1: Full-Stack Web Development -->
+                    <div class="group relative rounded-2xl card-blur p-7 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                                تطوير الويب الشامل (Full-Stack)
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                بناء منصات ومواقع ويب متكاملة من جانب الخادم والعميل بالاعتماد على إطار عمل Laravel، ونظام الـ APIs المتقدمة، مع هندسة معمارية آمنة قابلة للتوسع.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-4 border-t border-slate-800">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-slate-300">Laravel / PHP / Livewire</span>
+                                <span class="text-brand-400 font-mono">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-brand-600 to-brand-400 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: Mobile Apps (Flutter) -->
+                    <div class="group relative rounded-2xl card-blur p-7 hover:border-brand-accent/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                                تطبيقات الهواتف الذكية (Flutter)
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                تصميم وبرمجة تطبيقات هجينة فائقة السرعة لأنظمة Android وiOS عبر Flutter وDart، مع إدارة الحالة الاحترافية والربط المتزامن مع السيرفرات.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-4 border-t border-slate-800">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-slate-300">Flutter / Dart / Clean Architecture</span>
+                                <span class="text-cyan-400 font-mono">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-600 to-cyan-400 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3: Frontend & Modern UI/UX -->
+                    <div class="group relative rounded-2xl card-blur p-7 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                                واجهات المستخدم والتفاعل (UI/UX)
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                صياغة واجهات مستخدم مريحة للعين، تفاعلية ومتجاوبة تماماً مع شاشات الجوال والحواسيب، باستخدام Tailwind CSS ومكتبات JavaScript الحديثة.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-4 border-t border-slate-800">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-slate-300">Tailwind CSS / JS / Responsive</span>
+                                <span class="text-emerald-400 font-mono">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-emerald-600 to-emerald-400 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: Database Architecture -->
+                    <div class="group relative rounded-2xl card-blur p-7 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mb-6 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                                هندسة قواعد البيانات والأنظمة
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                تخطيط وهيكلة وتطبيع قواعد البيانات (MySQL, PostgreSQL, SQLite)، وتحسين الاستعلامات والـ Indexing للتعامل مع كميات بيانات ضخمة بكفاءة وموثوقية.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-4 border-t border-slate-800">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-slate-300">MySQL / Query Optimization</span>
+                                <span class="text-indigo-400 font-mono">88%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-600 to-indigo-400 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 5: RESTful APIs & Integrations -->
+                    <div class="group relative rounded-2xl card-blur p-7 hover:border-cyan-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
+                                بناء وتكامل واجهات الـ API
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                بناء وتأمين واجهات برمجية RESTful موثقة باحترافية، وتكامل بوابات الدفع الإلكتروني، ورسائل الـ SMS، وخدمات الإشعارات السحابية الفورية.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-4 border-t border-slate-800">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-slate-300">REST APIs / Sanctum / JWT</span>
+                                <span class="text-sky-400 font-mono">94%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-sky-600 to-sky-400 h-2 rounded-full" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 6: Systems Security & DevOps Basics -->
+                    <div class="group relative rounded-2xl card-blur p-7 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                                حماية الأنظمة وإدارة الخوادم
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                نشر التطبيقات على سيرفرات Linux السحابية، وتهيئة Nginx، وحماية المنصات ضد هجمات الويب الشهيرة (CSRF, XSS, SQLi)، وتأمين النسخ الاحتياطية.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-4 border-t border-slate-800">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-slate-300">Linux / Nginx / Git / Security</span>
+                                <span class="text-amber-400 font-mono">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-amber-600 to-amber-400 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 lg:py-28 relative bg-[#0b1120] bg-tech-grid">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div>
+                        <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20">
+                            معرض الأعمال البرمجية
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4">
+                            نماذج من البرامج والمشاريع
+                        </h2>
+                    </div>
+                    <p class="text-slate-400 text-base max-w-md">
+                        مشاريع حقيقية قمت بهندستها وتطويرها لحل مشكلات واقعية وتقديم تجارب استخدام استثنائية.
+                    </p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project 1 -->
+                    <div class="rounded-2xl card-blur overflow-hidden border border-slate-800/80 hover:border-brand-500/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                        <!-- Project Image / Mockup -->
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <!-- SVG Project Graphic Mockup -->
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-emerald-950/40 to-slate-900 group-hover:scale-105 transition-transform duration-500">
+                                <div class="text-center p-6">
+                                    <div class="w-16 h-16 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center mx-auto mb-3 border border-brand-500/30">
+                                        <i class="fa-solid fa-brain text-2xl"></i>
+                                    </div>
+                                    <span class="text-xs font-mono text-brand-400 bg-brand-950/80 px-2.5 py-1 rounded-full border border-brand-800">
+                                        AI & Web System
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-brand-600 text-white text-xs px-2.5 py-1 rounded-md font-semibold shadow">
+                                نظام ويب ذكي
+                            </div>
+                        </div>
+
+                        <!-- Project Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                                    منصة اليمن للذكاء الاصطناعي (YEMEN AI)
+                                </h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    منصة متكاملة لتوليد المحتوى وتقديم حلول الذكاء الاصطناعي التوليدي، مع نظام إدارة اشتراكات، ولوحة تحكم متطورة وسريعة الاستجابة.
+                                </p>
+                                <!-- Tech tags -->
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">Laravel</span>
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">Tailwind CSS</span>
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">OpenAI API</span>
+                                </div>
+                            </div>
+
+                            <button onclick="openModal('منصة اليمن للذكاء الاصطناعي (YEMEN AI)', 'منصة سحابية متطورة توفر واجهات ذكية لرواد الأعمال وصناع المحتوى، تشمل تكاملاً سلساً مع نماذج الذكاء الاصطناعي، لوحة إدارة للمستخدمين، وتتبع دقيق للمدفوعات ونسب الاستخدام.', ['Laravel 10', 'Tailwind CSS', 'Alpine.js', 'REST APIs', 'MySQL'], 'fa-brain')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-brand-600 text-white font-medium text-sm transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                <span>عرض تفاصيل المشروع</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="rounded-2xl card-blur overflow-hidden border border-slate-800/80 hover:border-cyan-500/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                        <!-- Project Image / Mockup -->
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-cyan-950/40 to-slate-900 group-hover:scale-105 transition-transform duration-500">
+                                <div class="text-center p-6">
+                                    <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-3 border border-cyan-500/30">
+                                        <i class="fa-solid fa-clipboard-check text-2xl"></i>
+                                    </div>
+                                    <span class="text-xs font-mono text-cyan-400 bg-cyan-950/80 px-2.5 py-1 rounded-full border border-cyan-800">
+                                        Mobile App (Flutter)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-cyan-600 text-white text-xs px-2.5 py-1 rounded-md font-semibold shadow">
+                                تطبيق هاتف
+                            </div>
+                        </div>
+
+                        <!-- Project Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                                    تطبيق إدارة المهام والملاحظات الذكية
+                                </h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    تطبيق جوال تفاعلي متعدد اللغات مبني باستخدام Flutter، يدعم العمل دون اتصال بالإنترنت مع مزامنة تلقائية وتنبيهات فورية.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">Flutter</span>
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">Dart</span>
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">SQLite / Hive</span>
+                                </div>
+                            </div>
+
+                            <button onclick="openModal('تطبيق إدارة المهام والملاحظات الذكية', 'تطبيق محمول عالي السرعة لنظامي أندرويد و iOS، يتميز بتصميم عصري داعم للوضع الليلي، تصنيف الملاحظات الذكي بالذكاء الاصطناعي، ونظام تذكيرات دقيق.', ['Flutter', 'Dart', 'Provider / Bloc', 'Local Storage', 'Push Notifications'], 'fa-clipboard-check')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-cyan-600 text-white font-medium text-sm transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                <span>عرض تفاصيل المشروع</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="rounded-2xl card-blur overflow-hidden border border-slate-800/80 hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col">
+                        <!-- Project Image / Mockup -->
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 group-hover:scale-105 transition-transform duration-500">
+                                <div class="text-center p-6">
+                                    <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mx-auto mb-3 border border-indigo-500/30">
+                                        <i class="fa-solid fa-chart-pie text-2xl"></i>
+                                    </div>
+                                    <span class="text-xs font-mono text-indigo-400 bg-indigo-950/80 px-2.5 py-1 rounded-full border border-indigo-800">
+                                        ERP & Management
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-indigo-600 text-white text-xs px-2.5 py-1 rounded-md font-semibold shadow">
+                                نظام إداري ERP
+                            </div>
+                        </div>
+
+                        <!-- Project Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                                    نظام إدارة الأعمال والمبيعات المتكامل
+                                </h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    لوحة تحكم إدارية متقدمة مبنية بـ Laravel وFilament لإدارة المستودعات، نقاط البيع، العملاء، والتقارير المالية الدقيقة بصيغ PDF وExcel.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">Laravel</span>
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">Filament PHP</span>
+                                    <span class="text-xs font-mono bg-slate-800/80 text-slate-300 px-2.5 py-1 rounded-md">MySQL</span>
+                                </div>
+                            </div>
+
+                            <button onclick="openModal('نظام إدارة الأعمال والمبيعات المتكامل', 'نظام مؤسسي متكامل يغطي دورة المبيعات والمشتريات وإدارة المخازن، مع نظام صلاحيات مستخدمين متعدد المستويات وتقارير بيانية تفاعلية.', ['Laravel', 'Filament Admin', 'PostgreSQL', 'Charts.js', 'Export Tools'], 'fa-chart-pie')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-indigo-600 text-white font-medium text-sm transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                <span>عرض تفاصيل المشروع</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 lg:py-28 relative bg-[#090e1a] border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20">
+                        قنوات الاتصال المباشر
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-4">
+                        تواصل معي الآن
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg">
+                        هل لديك فكرة مشروع ترغب في تحويلها إلى واقع؟ أو تبحث عن استشارة برمجية لتطوير نظامك؟ أنا هنا للمساعدة.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Contact Information Cards (Left / 5 Cols) -->
+                    <div class="lg:col-span-5 space-y-6">
+                        
+                        <!-- Phone Card -->
+                        <div class="rounded-2xl card-blur p-6 border border-slate-800 hover:border-brand-500/40 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-xl shrink-0 border border-brand-500/20">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-400">رقم الهاتف / الجوال</h4>
+                                <a href="tel:+967770000000" class="text-lg font-bold text-white hover:text-brand-400 transition-colors font-mono" dir="ltr">
+                                    +967 770 000 000
+                                </a>
+                                <p class="text-xs text-slate-400 mt-1">متاح للمكالمات والواتساب</p>
+                            </div>
+                        </div>
+
+                        <!-- Email Card -->
+                        <div class="rounded-2xl card-blur p-6 border border-slate-800 hover:border-brand-accent/40 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl shrink-0 border border-cyan-500/20">
+                                <i class="fa-solid fa-envelope-open-text"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-400">البريد الإلكتروني</h4>
+                                <a href="mailto:eng.shuaib@example.com" class="text-lg font-bold text-white hover:text-cyan-400 transition-colors font-mono">
+                                    eng.shuaib@example.com
+                                </a>
+                                <p class="text-xs text-slate-400 mt-1">رد سريع خلال 24 ساعة كحد أقصى</p>
+                            </div>
+                        </div>
+
+                        <!-- Location Card -->
+                        <div class="rounded-2xl card-blur p-6 border border-slate-800 hover:border-emerald-500/40 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl shrink-0 border border-emerald-500/20">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-400">العنوان والموقع</h4>
+                                <p class="text-lg font-bold text-white">
+                                    اليمن - صنعاء
+                                </p>
+                                <p class="text-xs text-slate-400 mt-1">متاح للعمل الحضوري وعن بُعد (Remote)</p>
+                            </div>
+                        </div>
+
+                        <!-- Quick WhatsApp direct banner -->
+                        <div class="p-6 rounded-2xl bg-gradient-to-r from-emerald-900/40 via-brand-900/30 to-emerald-950/50 border border-emerald-500/30 text-white flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-base text-white">محادثة واتساب سريعة؟</h4>
+                                <p class="text-xs text-slate-300">تحدث مباشرة مع المهندس شعيب</p>
+                            </div>
+                            <a href="https://wa.me/967770000000?text=مرحباً%20م.%20شعيب%20الشدادي،%20أود%20الاستفسار%20عن%20خدماتكم%20البرمجية" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold text-xs flex items-center gap-2 shadow-lg transition-transform hover:scale-105">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>ابدأ المحادثة</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Interactive Contact Form (Right / 7 Cols) -->
+                    <div class="lg:col-span-7">
+                        <div class="rounded-3xl card-blur p-8 sm:p-10 border border-slate-800 shadow-2xl relative">
+                            <h3 class="text-2xl font-bold text-white mb-2">أرسل لي رسالة مباشرة</h3>
+                            <p class="text-slate-400 text-sm mb-8">قم بملء البيانات وسأقوم بمراجعة طلبك والتواصل معك فوراً.</p>
+
+                            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <!-- Full Name -->
+                                    <div>
+                                        <label for="userName" class="block text-xs font-semibold text-slate-300 mb-2">الاسم الكامل *</label>
+                                        <div class="relative">
+                                            <i class="fa-regular fa-user absolute right-3.5 top-3.5 text-slate-500"></i>
+                                            <input type="text" id="userName" required placeholder="مثال: أحمد محمد" class="w-full pr-10 pl-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
+                                        </div>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div>
+                                        <label for="userEmail" class="block text-xs font-semibold text-slate-300 mb-2">البريد الإلكتروني *</label>
+                                        <div class="relative">
+                                            <i class="fa-regular fa-envelope absolute right-3.5 top-3.5 text-slate-500"></i>
+                                            <input type="email" id="userEmail" required placeholder="name@domain.com" class="w-full pr-10 pl-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-mono" dir="ltr">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Subject -->
+                                <div>
+                                    <label for="userSubject" class="block text-xs font-semibold text-slate-300 mb-2">موضوع الرسالة / نوع المشروع *</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-tag absolute right-3.5 top-3.5 text-slate-500"></i>
+                                        <input type="text" id="userSubject" required placeholder="مثال: تطوير تطبيق جوال / بناء متجر إلكتروني" class="w-full pr-10 pl-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
+                                    </div>
+                                </div>
+
+                                <!-- Message Body -->
+                                <div>
+                                    <label for="userMessage" class="block text-xs font-semibold text-slate-300 mb-2">تفاصيل المحتوى والرسالة *</label>
+                                    <textarea id="userMessage" rows="5" required placeholder="اكتب نبذة مختصرة عن فكرة مشروعك، متطلباتك، والموعد المفضل للتنفيذ..." class="w-full p-4 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all resize-none"></textarea>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" id="submitBtn" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-600 to-brand-accent hover:from-brand-500 hover:to-cyan-400 text-white font-bold text-base shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 transition-all duration-300 flex items-center justify-center gap-2 group">
+                                    <i class="fa-solid fa-paper-plane group-hover:-translate-x-1 transition-transform"></i>
+                                    <span>إرسال الرسالة الآن</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#070b14] border-t border-slate-800/80 py-10 relative z-10 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-brand-600/20 border border-brand-500/30 flex items-center justify-center font-bold text-brand-400 text-sm">
+                    ش.ش
+                </div>
+                <div>
+                    <span class="font-bold text-white">م. شعيب الشدادي</span> - هندسة برمجيات وتطوير الحلول التقنية.
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-500">
+                جميع الحقوق محفوظة &copy; <span id="currentYear"></span> م. شعيب الشدادي
+            </p>
+
+            <!-- Back to top button -->
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-brand-500 hover:text-white text-slate-300 flex items-center justify-center transition-all" aria-label="للأعلى">
+                <i class="fa-solid fa-chevron-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="relative w-full max-w-xl card-blur bg-slate-900 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl transition-all">
+            <button onclick="closeModal()" class="absolute top-5 left-5 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/60 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl mb-4 border border-brand-500/30">
+                <i id="modalIcon" class="fa-solid fa-laptop-code"></i>
+            </div>
+
+            <h3 id="modalTitle" class="text-2xl font-bold text-white mb-3">عنوان المشروع</h3>
+            
+            <p id="modalDesc" class="text-slate-300 text-sm leading-relaxed mb-6">
+                وصف تفصيلي للمشروع.
+            </p>
+
+            <div class="mb-6">
+                <h4 class="text-xs font-semibold text-slate-400 mb-2">التقنيات المستخدمة في المشروع:</h4>
+                <div id="modalTags" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="flex gap-3 pt-4 border-t border-slate-800">
+                <button onclick="closeModal()" class="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition-colors">
+                    إغلاق النافذة
+                </button>
+                <a href="#contact" onclick="closeModal()" class="flex-1 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm text-center transition-colors">
+                    طلب مشروع مماثل
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert / Toast Feedback Message Box (Replaces Alert) -->
+    <div id="feedbackToast" class="fixed bottom-6 left-6 z-50 hidden transition-all duration-300 transform translate-y-4">
+        <div class="bg-slate-900 border border-brand-500/50 text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-md card-blur">
+            <div class="w-10 h-10 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-check text-lg"></i>
+            </div>
+            <div>
+                <h5 class="text-sm font-bold text-white" id="toastTitle">تم بنجاح!</h5>
+                <p class="text-xs text-slate-300" id="toastMessage">تم استلام رسالتك، شكراً لتواصلك يا مهندس.</p>
+            </div>
+            <button onclick="hideToast()" class="text-slate-400 hover:text-white mr-auto text-sm p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+
+        // Close mobile menu on nav link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // 2. Typing Effect for Hero Roles
+        const roles = [
+            "تطوير الويب الشامل (Laravel & PHP)",
+            "تطبيقات الموبايل الذكية (Flutter)",
+            "هندسة قواعد البيانات والأنظمة السحابية",
+            "بناء واجهات برمجية RESTful APIs"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 90;
+        const deletingSpeed = 45;
+        const pauseTime = 1600;
+        const typingElement = document.getElementById('typingText');
+
+        function typeLoop() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                setTimeout(() => { isDeleting = true; typeLoop(); }, pauseTime);
+                return;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeLoop, 400);
+                return;
+            }
+
+            setTimeout(typeLoop, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        window.onload = function() {
+            typeLoop();
+        };
+
+        // 3. Project Modal Handler
+        function openModal(title, description, tags, iconClass) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDesc').textContent = description;
+            
+            const iconElem = document.getElementById('modalIcon');
+            iconElem.className = `fa-solid ${iconClass}`;
+
+            const tagsContainer = document.getElementById('modalTags');
+            tagsContainer.innerHTML = '';
+            tags.forEach(tag => {
+                const badge = document.createElement('span');
+                badge.className = 'text-xs font-mono bg-brand-500/10 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-lg';
+                badge.textContent = tag;
+                tagsContainer.appendChild(badge);
+            });
+
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        // Close modal on escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // 4. Contact Form Submission (No alert/confirm)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalContent = btn.innerHTML;
+
+            // Loading state
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> <span>جاري إرسال رسالتك...</span>`;
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+                document.getElementById('contactForm').reset();
+                showToast('تم استلام رسالتك بنجاح!', 'شكراً لتواصلك مع م. شعيب الشدادي، سيتم الرد عليك في أقرب وقت.');
+            }, 1200);
+        }
+
+        function showToast(title, message) {
+            const toast = document.getElementById('feedbackToast');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMessage').textContent = message;
+            
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-4');
+            }, 10);
+
+            setTimeout(() => {
+                hideToast();
+            }, 5500);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('feedbackToast');
+            toast.classList.add('translate-y-4');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 300);
+        }
+    </script>
 </body>
 </html>
